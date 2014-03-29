@@ -41,10 +41,7 @@ function splitString(str, numParts) {
     solveDuplicatedStrProblem(strArr);
     
     // Debug code {
-//    console.log(strArr);
-//    for (var i = 0; i < strArr.length; ++i) {
-//        console.log((i + 1) + ": " + strArr[i]);
-//    }
+    //    console.log(strArr);
     // }
     
     return strArr;
@@ -70,9 +67,9 @@ function solveDuplicatedStrProblem(strArr) {
     }
     
     // Debug code {
-//    if (duplicatedString) {
-//        console.log(duplicatedString);
-//    }
+    //    if (duplicatedString) {
+    //        console.log(duplicatedString);
+    //    }
     // }
     
     // If there are duplicated string:
