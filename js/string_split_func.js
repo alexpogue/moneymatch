@@ -10,23 +10,28 @@
  */
 function splitString(str, numParts) {
     // Array of all words
-    var wordArr[] = str.split(" ");
+    var wordArr = str.split(" ");
     // Final amount of parts we want.
     var numParts_final = Math.min(numParts, wordArr.size);
     // How many words are in a part (average)
     var numWordsInEachPart = wordArr.size/numParts_final;
     // Final result to return
-    var strArr[];
+    var strArr;
     // Start appending strings to strArr
-    for (int i = 0; i < numParts_final; ++i) {
-        for (int j = 0; j < numWordsInEachPart; ++j) {
-            strArr[i] = "";
+    for (var i = 0; i < numParts_final; ++i) {
+        strArr[i] = "";
+        for (var j = 0; j < numWordsInEachPart; ++j) {
             strArr[i] += wordArr[i * numWordsInEachPart + j];
             if (j < numWordsInEachPart - 1 && 
                 i * numWordsInEachPart + j < wordArr.size - 1 ) {
                 strArr[i] += " ";
             }
         }
+    }
+    
+    // test code
+    for (var s in strArr) {
+        console.log(s);
     }
     
     return strArr;
