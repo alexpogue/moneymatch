@@ -4,7 +4,7 @@ var globalFavs;
 
 function GameCtrl($scope, $timeout) {
 //	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
-	var tip = "Be freaking awesome!";
+	var tip = "WE DON'T LEASE WE BUY THE WHOLE CAR";
 	var numWordsInTip = tip.split(' ').length;
 
 	globalFavs = [];
@@ -12,7 +12,7 @@ function GameCtrl($scope, $timeout) {
 	$scope.solved = false;
 	$scope.favButtonClicked = false;
 
-	$scope.cards = getCardsFromString_withDuplicates(tip, 36, 36);
+	$scope.cards = getCardsFromString_withDuplicates(tip, 8, 16);
 	var flippedCardInd = null;
 
 	$scope.solvedWords = [];
