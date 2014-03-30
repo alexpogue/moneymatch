@@ -7,8 +7,16 @@
 	</head>
 	<body ng-app>
 		<div id="gameboard" ng-controller="GameCtrl">
+			<div>
+				Solution: 
+				<span ng-repeat="word in solvedWords track by $index">
+					{{word}} 
+				</span>
+			</div>
 			<div class="card" ng-repeat="card in cards track by $index" ng-click="cardClicked($index)">
-				<span ng-show="cards[$index].flipped">{{card.content}}</span>
+				<span ng-show="card.flipped">
+					{{card.content}}
+				</span>
 			</div>
 		</div>
 		<script src="js/libs/angular.min.js"></script>

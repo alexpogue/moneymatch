@@ -1,8 +1,8 @@
 /* style.css */
 .card {
-	width: 100px;
+	width: 200px;
 	float: left;
-	height: 100px;
+	height: 90px;
 	margin: 5px;
 	background-color: #AAA;
 	display:table;
@@ -10,13 +10,13 @@
 	word-wrap:break-word;
 	text-align:center;
 }
-
 .card span {
+/*
 	display:table-cell;
 	vertical-align:middle;
+*/
 }
-
 #gameboard {
-	width: 660px; //fit 6 cards
+	width: 1260px; //fit 6 cards
 	margin:0 auto;
 }

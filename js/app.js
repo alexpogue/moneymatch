@@ -1,3 +1,5 @@
+"use strict";
+
 function GameCtrl($scope, $timeout) {
 	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
 
@@ -5,6 +7,11 @@ function GameCtrl($scope, $timeout) {
 
 	$scope.cards = getCardsFromString_withDuplicates(tip, 36, 36);
 	var flippedCardInd = null;
+
+	$scope.solvedWords = [];
+	for(var i = 0; i < $scope.cards.length / 2; i++) {
+		$scope.solvedWords.push("[]");
+	}
 
 	$scope.cardClicked = function(ind) {
 		window.getSelection().removeAllRanges();
@@ -22,6 +29,7 @@ function GameCtrl($scope, $timeout) {
 			$scope.cards[ind].solved = true;
 			flippedCard.solved = true;
 			flippedCardInd = null;
+			$scope.solvedWords[$scope.cards[ind].order] = $scope.cards[ind].content;
 			/* cards matched! Display them in green. If there are still cards 
 			on the board with the string, do nothing. If all cards with the 
 			string have been matched, show the word in the solution. */
@@ -37,7 +45,7 @@ function GameCtrl($scope, $timeout) {
 			);
 			flippedCardInd = null;
 		}
-	}
+	};
 }
 
 function flipAllUnsolvedCards(cards) {
@@ -48,12 +56,3 @@ function flipAllUnsolvedCards(cards) {
 	}
 }
 
-function shuffleArray(arr) {
-	var i = arr.length;
-	while(--i) {
-		var j = Math.floor(Math.random() * (i + 1));
-		var temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
-}

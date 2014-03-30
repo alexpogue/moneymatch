@@ -1,3 +1,5 @@
+"use strict";
+
 /* This file contain functions to create/update card object */
 
 /** Constructor of class Card.
