@@ -1,0 +1,22 @@
+<div id="gameboard">
+	<div>
+		Solution: 
+		<span ng-repeat="word in wordsInSolution() track by $index">
+			{{word}} 
+		</span>
+		<a href="#" onclick="return false;" ng-show="solved" ng-click="addFav()">
+			<span ng-click="favButtonClick()" ng-hide="favButtonClicked">
+				[favorite]
+			</span>
+		</a>
+		<span ng-show="favButtonClicked">
+			[done, <a href="#/favs">see favs</a>]
+		</span>
+	</div>
+	<div class="card" ng-repeat="card in cards track by $index" ng-click="cardClicked($index)">
+		<span ng-show="card.flipped">
+			{{card.content}}
+		</span>
+	</div>
+</div>
+
