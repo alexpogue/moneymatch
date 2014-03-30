@@ -1,5 +1,6 @@
 function FavCtrl($scope) {
-	if($scope.favs === [] || $scope.favs === undefined || $scope.favs === null) {
+	if(globalFavs === [] || globalFavs === undefined || globalFavs === null) {
 		$scope.noFavs = true;
 	}
+	$scope.favs = globalFavs;
 }

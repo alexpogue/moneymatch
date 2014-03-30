@@ -1,9 +1,12 @@
 "use strict";
 
-function GameCtrl($scope, $timeout) {
-	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
+var globalFavs;
 
-	$scope.favs = [];
+function GameCtrl($scope, $timeout) {
+//	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
+	var tip = "Be freaking awesome!";
+
+	globalFavs = [];
 	$scope.clicksEnabled = true;
 	$scope.solved = false;
 	$scope.favButtonClicked = false;
@@ -68,7 +71,7 @@ function GameCtrl($scope, $timeout) {
 	};
 
 	$scope.addFav = function() {
-		$scope.favs.push(tip);
+		globalFavs.push(tip);
 	};
 }
 

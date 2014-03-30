@@ -11,6 +11,7 @@
 	text-align:center;
 }
 .card span {
+	/* breaks ng-show in Chrome */
 /*
 	display:table-cell;
 	vertical-align:middle;
