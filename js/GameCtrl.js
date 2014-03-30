@@ -5,6 +5,7 @@ var globalFavs;
 function GameCtrl($scope, $timeout) {
 //	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
 	var tip = "Be freaking awesome!";
+	var numWordsInTip = tip.split(' ').length;
 
 	globalFavs = [];
 	$scope.clicksEnabled = true;
@@ -18,7 +19,7 @@ function GameCtrl($scope, $timeout) {
 
 	$scope.wordsInSolution = function() {
 		var ret = [];
-		for(var i = 0; i < $scope.cards.length / 2; i++) {
+		for(var i = 0; i < numWordsInTip; i++) {
 			if($scope.solvedWords[i] === undefined) {
 				ret.push("[]");
 			}
@@ -47,7 +48,7 @@ function GameCtrl($scope, $timeout) {
 			flippedCardInd = null;
 			$scope.solvedWords[$scope.cards[ind].order] = $scope.cards[ind].content;
 			var numSolvedWords = getNumSolvedWords($scope.solvedWords);
-			if(numSolvedWords === $scope.cards.length / 2) {
+			if(numSolvedWords === numWordsInTip) {
 				$scope.solved = true;
 			}
 			/* cards matched! Display them in green. If there are still cards 
