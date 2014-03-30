@@ -9,6 +9,14 @@ function Card(_content) {
     this.flipped = false;    // If this card is flipped or not.
     this.solved = false;     // If this card has been solved or not.
     this.order= 0;           // Order of this card in the whole final string.
+
+	this.clone = clone;
+	function clone() {
+		var ret = new Card(this.content);
+		ret.flipped = this.flipped;
+		ret.solved = this.solved;
+		ret.order = 0;
+	}
     
     // Use this method to see if two cards match eachother.
     this.matchCard = matchCard;
