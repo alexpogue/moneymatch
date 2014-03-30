@@ -1,1 +1,22 @@
 /* style.css */
+.card {
+	width: 100px;
+	float: left;
+	height: 100px;
+	margin: 5px;
+	background-color: #AAA;
+	display:table;
+	table-layout:fixed;
+	word-wrap:break-word;
+	text-align:center;
+}
+
+.card span {
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#gameboard {
+	width: 660px; //fit 6 cards
+	margin:0 auto;
+}

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <meta charset="UTF-8">
-     <title>title</title>
-      </head>
-       <body>
-         
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body ng-app>
+		<div id="gameboard" ng-controller="GameCtrl">
+			<div class="card" ng-repeat="card in cards track by $index" ng-click="cardClicked($index)">
+				<span ng-show="cards[$index].flipped">{{card.content}}</span>
+			</div>
+		</div>
+		<script src="js/libs/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/card.js"></script>
+		<script src="js/string_split_func.js"></script>
+	</body>
 </html>
