@@ -15,7 +15,8 @@ function Card(_content) {
 		var ret = new Card(this.content);
 		ret.flipped = this.flipped;
 		ret.solved = this.solved;
-		ret.order = 0;
+		ret.order = this.order;
+		return ret;
 	}
     
     // Use this method to see if two cards match eachother.
@@ -75,8 +76,13 @@ function getCardsFromString_withDuplicates(str, numUniqueCards, totalNum) {
     while (cards.length < Math.floor(totalNum/2)) {
         cards[cards.length] = cards[Math.floor(Math.random()*1000)%cards.length];
     }
-    // Duplicate every single card:
-    cards = cards.concat(cards);
+
+    // Duplicate every single card
+	var cardsClone = [];
+	for(var i = 0; i < cards.length; i++) {
+		cardsClone.push(cards[i].clone());
+	}
+    cards = cards.concat(cardsClone);
     cards = shuffle(cards);
     
     return cards;
