@@ -4,7 +4,7 @@ var globalFavs;
 
 function GameCtrl($scope, $timeout) {
 //	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
-	var tip = "WE DON'T LEASE WE BUY THE WHOLE CAR";
+	var tip = "we don't lease just buy the whole car";
 	var numWordsInTip = tip.split(' ').length;
 
 	globalFavs = [];
