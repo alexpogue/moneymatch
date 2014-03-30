@@ -9,9 +9,10 @@
 		<div id="gameboard" ng-controller="GameCtrl">
 			<div>
 				Solution: 
-				<span ng-repeat="word in solvedWords track by $index">
+				<span ng-repeat="word in wordsInSolution() track by $index">
 					{{word}} 
 				</span>
+				<a href="#" ng-show="solved">[favorite]</a>
 			</div>
 			<div class="card" ng-repeat="card in cards track by $index" ng-click="cardClicked($index)">
 				<span ng-show="card.flipped">

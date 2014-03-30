@@ -4,14 +4,25 @@ function GameCtrl($scope, $timeout) {
 	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
 
 	$scope.clicksEnabled = true;
+	$scope.solved = false;
 
 	$scope.cards = getCardsFromString_withDuplicates(tip, 36, 36);
 	var flippedCardInd = null;
 
 	$scope.solvedWords = [];
-	for(var i = 0; i < $scope.cards.length / 2; i++) {
-		$scope.solvedWords.push("[]");
-	}
+
+	$scope.wordsInSolution = function() {
+		var ret = [];
+		for(var i = 0; i < $scope.cards.length / 2; i++) {
+			if($scope.solvedWords[i] === undefined) {
+				ret.push("[]");
+			}
+			else{
+				ret.push($scope.solvedWords[i]);
+			}
+		}
+		return ret;
+	};
 
 	$scope.cardClicked = function(ind) {
 		window.getSelection().removeAllRanges();
@@ -30,6 +41,10 @@ function GameCtrl($scope, $timeout) {
 			flippedCard.solved = true;
 			flippedCardInd = null;
 			$scope.solvedWords[$scope.cards[ind].order] = $scope.cards[ind].content;
+			var numSolvedWords = getNumSolvedWords($scope.solvedWords);
+			if(numSolvedWords === $scope.cards.length / 2) {
+				$scope.solved = true;
+			}
 			/* cards matched! Display them in green. If there are still cards 
 			on the board with the string, do nothing. If all cards with the 
 			string have been matched, show the word in the solution. */
@@ -46,6 +61,16 @@ function GameCtrl($scope, $timeout) {
 			flippedCardInd = null;
 		}
 	};
+}
+
+function getNumSolvedWords(solvedWords) {
+	var num = 0;
+	for(var i = 0; i < solvedWords.length; i++) {
+		if(solvedWords[i] !== undefined) {
+			++num;
+		}
+	}
+	return num;
 }
 
 function flipAllUnsolvedCards(cards) {
