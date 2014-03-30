@@ -12,10 +12,8 @@
 }
 .card span {
 	/* breaks ng-show in Chrome */
-/*
 	display:table-cell;
 	vertical-align:middle;
-*/
 }
 #gameboard {
 	width: 860px; //fit 6 cards
