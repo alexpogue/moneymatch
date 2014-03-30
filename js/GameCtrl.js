@@ -3,8 +3,10 @@
 function GameCtrl($scope, $timeout) {
 	var tip = "Set aside extra money in the bank for emergencies, and do not live paycheck-to-paycheck if at all possible";
 
+	$scope.favs = [];
 	$scope.clicksEnabled = true;
 	$scope.solved = false;
+	$scope.favButtonClicked = false;
 
 	$scope.cards = getCardsFromString_withDuplicates(tip, 36, 36);
 	var flippedCardInd = null;
@@ -60,6 +62,13 @@ function GameCtrl($scope, $timeout) {
 			);
 			flippedCardInd = null;
 		}
+	};
+	$scope.favButtonClick = function() {
+		$scope.favButtonClicked = true;
+	};
+
+	$scope.addFav = function() {
+		$scope.favs.push(tip);
 	};
 }
 

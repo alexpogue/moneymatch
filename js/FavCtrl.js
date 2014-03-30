@@ -1,3 +1,5 @@
 function FavCtrl($scope) {
-	$scope.favs = ['this', 'is', 'a', 'fake', 'list', 'of', 'favorites'];
+	if($scope.favs === [] || $scope.favs === undefined || $scope.favs === null) {
+		$scope.noFavs = true;
+	}
 }

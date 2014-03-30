@@ -4,25 +4,16 @@
 		<meta charset="UTF-8">
 		<title>title</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-	</head>
-	<body ng-app>
-		<div id="gameboard" ng-controller="GameCtrl">
-			<div>
-				Solution: 
-				<span ng-repeat="word in wordsInSolution() track by $index">
-					{{word}} 
-				</span>
-				<a href="#" ng-show="solved">[favorite]</a>
-			</div>
-			<div class="card" ng-repeat="card in cards track by $index" ng-click="cardClicked($index)">
-				<span ng-show="card.flipped">
-					{{card.content}}
-				</span>
-			</div>
-		</div>
 		<script src="js/libs/angular.min.js"></script>
+		<script src="js/libs/angular-route.min.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/GameCtrl.js"></script>
+		<script src="js/FavCtrl.js"></script>
+		<script src="js/controllers.js"></script>
 		<script src="js/card.js"></script>
 		<script src="js/string_split_func.js"></script>
+	</head>
+	<body ng-app="moneyMatchApp">
+		<div ng-view></div>
 	</body>
 </html>
